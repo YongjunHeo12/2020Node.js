@@ -27,7 +27,7 @@ var add = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 추가 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 추가 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -38,18 +38,18 @@ var add = function(req, res) {
 			if (result) {
 				console.dir(result);
  
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 추가 성공</h2>');
                 res.write("<br><br><a href = '/profile'")
 				res.end();
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 추가 실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
@@ -69,7 +69,7 @@ var list = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 리스트 조회 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 리스트 조회 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -97,13 +97,13 @@ var list = function(req, res) {
 				res.write('</ul></div>');
 				res.end();
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 리스트 조회  실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
@@ -131,7 +131,7 @@ var findNear = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 검색 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 검색 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -142,7 +142,7 @@ var findNear = function(req, res) {
 			if (results) {
 				console.dir(results);
  
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>가까운 우산 대여소</h2>');
 				res.write('<div><ul>');
 				
@@ -159,13 +159,13 @@ var findNear = function(req, res) {
 				res.write('</ul></div>');
 				res.end();
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>가까운 우산 대여소 조회  실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
@@ -193,7 +193,7 @@ var findWithin = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 검색 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 검색 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -204,7 +204,7 @@ var findWithin = function(req, res) {
 			if (results) {
 				console.dir(results);
  
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>영역 내 우산 대여소</h2>');
 				res.write('<div><ul>');
 				
@@ -221,13 +221,13 @@ var findWithin = function(req, res) {
 				res.write('</ul></div>');
 				res.end();
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>영역 내 우산 대여소 조회  실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
@@ -255,7 +255,7 @@ var findCircle = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 검색 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 검색 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -266,7 +266,7 @@ var findCircle = function(req, res) {
 			if (results) {
 				console.dir(results);
  
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>반경 내 우산 대여소</h2>');
 				res.write('<div><ul>');
 				
@@ -283,13 +283,13 @@ var findCircle = function(req, res) {
 				res.write('</ul></div>');
 				res.end();
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>반경 내 우산 대여소 조회  실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
@@ -345,7 +345,7 @@ var findNear2 = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 검색 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 검색 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -359,19 +359,19 @@ var findNear2 = function(req, res) {
 				if (results.length > 0) {
 					res.render('findnear.ejs', {result: results[0]._doc, paramLatitude: paramLatitude, paramLongitude: paramLongitude});
 				} else {
-					res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+					res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 					res.write('<h2>가까운 우산 대여소 데이터가 없습니다.</h2>');
 					res.end();
 				}
 				
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>가까운 우산 대여소 조회  실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
@@ -404,7 +404,7 @@ var findWithin2 = function(req, res) {
 			if (err) {
                 console.error('우산 대여소 검색 중 에러 발생 : ' + err.stack);
                 
-                res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+                res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 검색 중 에러 발생</h2>');
                 res.write('<p>' + err.stack + '</p>');
 				res.end();
@@ -420,19 +420,19 @@ var findWithin2 = function(req, res) {
 												paramTopLeftLongitude: paramTopLeftLongitude, paramTopLeftLatitude: paramTopLeftLatitude,
 												paramBottomRightLongitude: paramBottomRightLongitude, paramBottomRightLatitude: paramBottomRightLatitude});
 				} else {
-					res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+					res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 					res.write('<h2>영역 내 우산 대여소 데이터가 없습니다.</h2>');
 					res.end();
 				}
 				
 			} else {
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>영역 내 우산 대여소 조회  실패</h2>');
 				res.end();
 			}
 		});
 	} else {
-		res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+		res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 		res.write('<h2>데이터베이스 연결 실패</h2>');
 		res.end();
 	}
