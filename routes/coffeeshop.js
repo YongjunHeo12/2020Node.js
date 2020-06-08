@@ -80,7 +80,7 @@ var list = function(req, res) {
 			if (results) {
 				console.dir(results);
  
-				res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
+				res.writeHead('200', {'Content-Type':'text/html;charset=UTF-8'});
 				res.write('<h2>우산 대여소 리스트</h2>');
 				res.write('<div><ul>');
 				
