@@ -1,13 +1,3 @@
-/**
- * Mission 17
- * 
- * 중국집 검색 기능 만들기
- *
- * 1. 웹서버 실행 : 명령프롬프트에서 node app.js 실행
- * 2. 웹페이지 열기 : 웹브라우저에서 http://localhost:3000/public/circleshop.html 열기
- * - 데이터 추가 : http://localhost:3000/public/addshop.html 열고 추가
- */
- 
 
 // Express 기본 모듈 불러오기
 var express = require('express')

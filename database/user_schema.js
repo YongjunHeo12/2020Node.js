@@ -1,10 +1,3 @@
-/**
- * 데이터베이스 스키마를 정의하는 모듈
- *
- * @date 2016-11-10
- * @author Mike
- */
-
 var crypto = require('crypto');
 
 var Schema = {};
@@ -18,6 +11,7 @@ Schema.createSchema = function(mongoose) {
 	    , name: {type: String, index: 'hashed', 'default':''}
 	    , salt: {type:String, required:true}
         , admin: {type:String, 'default':''}
+        , rentaltime: {type: String, ref:'rental'}
 	    , created_at: {type: Date, index: {unique: false}, 'default': Date.now}
 	    , updated_at: {type: Date, index: {unique: false}, 'default': Date.now} 
 	});

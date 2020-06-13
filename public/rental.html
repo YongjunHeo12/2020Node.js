@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>우산 대여화면</title>
+	</head>
+<body>
+	<h1>우산 대여</h1>
+	
+    <h1><a href = "/profile">위치 다시 확인하기</a></h1>
+	<br>
+	
+	<br>
+	<form method="post" action="/process/rentalumbrella">
+		<table>
+            <tr>
+				<td><label>이름</label></td>
+				<td><input type="text" name="name"  /></td>
+			</tr>
+			<tr>
+				<td><label>대여시간</label></td>
+				<td><input type="text" name="rentaltime" id = 'createDate' /></td>
+			</tr>
+		</table>
+        <h1>대여 시간이 맞는지 확인하고 대여하기 눌러주세요</h1>
+		<input type="submit" value="대여하기" name="" />
+	</form>
+     <script>
+                var timezoneOffset = new Date().getTimezoneOffset() * 60000;
+                var timezoneDate = new Date(Date.now() - timezoneOffset)
+         
+                document.getElementById('createDate').value=timezoneDate.toISOString().slice(0, -1);
+     </script>
+</body>
+</html>

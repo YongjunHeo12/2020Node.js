@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		
-		<title>반경으로 Shop찾기</title>
+		<title>반경으로 우산 대여소 찾기</title>
 			
 	    <style>
 	        html, body {
@@ -33,7 +33,8 @@
 	        var map;
 	        var centerLocation = {lat: <%= paramLatitude %>, lng: <%= paramLongitude %>};
 	        var shopLocation = {lat: <%= result.geometry.coordinates[1] %>, lng: <%= result.geometry.coordinates[0] %>};
-	         
+	        
+            
 	        function initMap() {
 	             
 	            map = new google.maps.Map(document.getElementById('map'), {
@@ -51,7 +52,7 @@
 	            
 	            var shopMarker = new google.maps.Marker({
 	                position:shopLocation,
-	                icon:'/public/chinese.png'
+	                icon:'/public/umbrella.png',
 	            });
 	
 	            shopMarker.setMap(map);
@@ -60,10 +61,10 @@
                     strokeColor:"#0000FF",
                     strokeOpacity:0.8,
                     strokeWeight:2,
-                    fillColor:"#0000FF",
+                    fillColor:"#000000",
                     fillOpacity:0.4,
                     center:centerLocation,
-                    radius:200
+                    radius:<%= paramRadius %>
                 });
                 
 	            searchCircle.setMap(map);
@@ -75,8 +76,10 @@
 	</head>
 	<body onload="onLoad()">
 		
-		<p>가까운 Shop 찾아 구글맵에 표시하기</p>
-    	<div id="map"></div>
-			
+		<p>반경 내 우산 대여 찾아 구글맵에 표시하기</p>
+    	<br>
+        <a href = /public/rental.html>해당 대여소에서 빌리기</a>
+        <div id="map"></div>
+        
 	</body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		
+		<title>프로필 화면</title>
+		
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    	
+    	<style>
+        	body        { padding-top:80px; }
+    	</style>
+    
+	</head>
+	<body>
+		
+		<div class="container">			
+						
+			<div class="page-header text-center">
+		        <h1><span class="fa fa-umbrella"></span>대여 관리창</h1>
+		    </div>
+			<br>
+		    <div class="row">
+		
+		        <div class="col-sm-6">
+		            <div class="well">
+		            
+			                <h3><span class="fa fa-user"></span>대여 현황</h3>
+							<br>
+							<p>
+								<strong>이름</strong>: <%= paramName %><br>
+                                <strong>대여시간</strong>: <%= paramrentalDatetime %>
+                                
+			                </p>
+		                	
+						<br>
+		            </div>
+		        </div>
+		
+		    </div>
+			
+		</div>	
+			
+	</body>
+</html>

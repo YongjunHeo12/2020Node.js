@@ -35,44 +35,42 @@
 								<strong>이메일</strong>: <%= user.email %><br><br>
 		                		<strong>별명</strong>: <%= user.name %>
                                 <br>
-                                <br><strong><a href="/public/listcoffeeshop.html">전체 우산 대여소 리스트 보기</a></strong>
-                                <% if(user.admin == "yes"){ %>
-                                <br>
-                                <br><strong><a href="/public/addcoffeeshop.html">우산 대여소 위치 추가하기</a></strong>
-                                <% } %>
+                                <br><strong><a href="/public/listUmbrella.html">전체 우산 대여소 리스트 보기</a></strong>
                                 
                                 <br>
-                                <br><strong><a href="/public/circlecoffeeshop.html">반경 내 우산 대여소 리스트 보기</a></strong>
+                                <br><strong><a href="/public/circleUmbrella.html">반경 내 우산 대여소 리스트 보기</a></strong>
                                 <br>
                                 <!--br><strong><a href="/public/withincoffeeshop2.html">영역 안의 우산 대여소 찾기</a></strong>
                                 <br-->
-                                <br><strong><a href="/public/nearcoffeeshop2.html">내 위치 주변 우산 대여소 찾기</a></strong>
+                                <br><strong><a href="/public/nearUmbrella.html">가장 가까운 우산 대여소 찾기</a></strong>
+                                <!--% if(rental.rentaltime){ %>
+                                <form method="post" action="/process/returnumbrella">
+                                
+                                <input type="submit" value="우산 반납 하기" name="" />
+                                </form>
+                                
+                                -->
+                                <% if(user.admin == "yes"){ %>
+                                <br><br>
+                                <strong>------관리자 전용 메뉴------</strong>
+                                <br>
+                                <br><strong><a href="/public/addUmbrella.html">우산 대여소 위치 추가하기</a></strong>   
+                                <br>
+                                <form method="post" action="/process/rentallist">
+                                
+                                <input type="submit" value="우산 대여 현황 확인하기" name="" />
+                                </form>
+                                <% } %>
 			                </p>
 			            <% } else if (user.provider == 'facebook') { %>
 							<h3 class="text-primary"><span class="fa fa-facebook"></span> 페이스북 프로필</h3>
-							<br>
+							<br> <!--이부분을 통정시로?-->
 		                    <p>
 		                        <strong>아이디</strong>: <%= user.facebook.id %><br><br>
 		                        <strong>이메일</strong>: <%= user.facebook.email %><br><br>
 		                        <strong>이름</strong>: <%= user.facebook.name %>
 		                    </p>
-		                <% } else if (user.provider == 'twitter') { %>
-							<h3 class="text-primary"><span class="fa fa-twitter"></span> 트위터 프로필</h3>
-							<br>
-		                    <p>
-		                        <strong>아이디</strong>: <%= user.twitter.id %><br><br>
-		                        <strong>이메일</strong>: <%= user.twitter.email %><br><br>
-		                        <strong>이름</strong>: <%= user.twitter.name %>
-		                    </p>
-		                <% } else if (user.provider == 'google') { %>
-							<h3 class="text-primary"><span class="fa fa-google"></span> 구글 프로필</h3>
-							<br>
-		                    <p>
-		                        <strong>아이디</strong>: <%= user.google.id %><br><br>
-		                        <strong>이메일</strong>: <%= user.google.email %><br><br>
-		                        <strong>이름</strong>: <%= user.google.name %>
-		                    </p>
-						<% } %>
+		                <% } %>
 		                	
 						<br>
 		            </div>

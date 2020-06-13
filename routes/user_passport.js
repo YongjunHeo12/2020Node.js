@@ -30,6 +30,7 @@ module.exports = function(router, passport) {
         console.log('/login 패스 요청됨.');
         res.render('login.ejs', {message: req.flash('loginMessage')});
     });
+    
 	 
     // 회원가입 화면
     router.route('/signup').get(function(req, res) {
@@ -44,7 +45,6 @@ module.exports = function(router, passport) {
         // 인증된 경우, req.user 객체에 사용자 정보 있으며, 인증안된 경우 req.user는 false값임
         console.log('req.user 객체의 값');
         console.dir(req.user);
-
         // 인증 안된 경우
         if (!req.user) {
             console.log('사용자 인증 안된 상태임.');
@@ -55,9 +55,9 @@ module.exports = function(router, passport) {
             console.dir(req.user);
 
             if (Array.isArray(req.user)) {
-                res.render('profile.ejs', {user: req.user[0]._doc});
+                res.render('profile.ejs', {user: req.user[0]._doc, rental: req.rental});
             } else {
-                res.render('profile.ejs', {user: req.user});
+                res.render('profile.ejs', {user: req.user, rental: req.rental});
             }
         }
     });
