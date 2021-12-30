@@ -3,9 +3,9 @@
  */
 module.exports = {
 	server_port: 3000,
-	db_url: 'mongodb://admin:qwer127834!!@ds263138.mlab.com:63138/heroku_90w09qwl',
+	db_url: 'mongodb://localhost:27017/R12_21',
 	db_schemas: [
-	    {file:'./user_schema', collection:'users7', schemaName:'UserSchema', modelName:'UserModel'}
+	    {file:'./user_schema', collection:'users', schemaName:'UserSchema', modelName:'UserModel'}
         ,{file:'./umbrella_schema', collection:'umbrella', schemaName:'UmbrellaSchema', modelName:'UmbrellaModel'}
          ,{file:'./rental_schema', collection:'rental', schemaName:'RentalSchema', modelName:'RentalModel'}
 	],

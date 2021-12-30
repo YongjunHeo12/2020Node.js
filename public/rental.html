@@ -6,10 +6,8 @@
 	</head>
 <body>
 	<h1>우산 대여</h1>
-	
     <h1><a href = "/profile">위치 다시 확인하기</a></h1>
 	<br>
-	
 	<br>
 	<form method="post" action="/process/rentalumbrella">
 		<table>
@@ -28,7 +26,6 @@
      <script>
                 var timezoneOffset = new Date().getTimezoneOffset() * 60000;
                 var timezoneDate = new Date(Date.now() - timezoneOffset)
-         
                 document.getElementById('createDate').value=timezoneDate.toISOString().slice(0, -1);
      </script>
 </body>

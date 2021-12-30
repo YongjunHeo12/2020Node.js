@@ -1,10 +1,57 @@
-/**
- * 패스포트 라우팅 함수 정의
- *
- * @date 2016-11-10
- * @author Mike
- */
-  
+var winston = require('winston');//외장모듈3개
+var winstonDaily = require('winston-daily-rotate-file');
+var moment = require('moment');
+
+function timeStampFormat(){
+    return moment().format('YYYY-MM-DD HH:mm:ss.SSS ZZ');
+};
+
+var logger = new (winston.createLogger)({
+    transports: [
+        new (winstonDaily)({
+            name:'info-file',
+            filename:'./log/server',
+            datePattern:'_YYYY-MM-DD',
+            colorize:false,
+            maxsize:50000000,
+            maxFiles:1000,
+            level:'info',
+            showLevel:true,
+            json:false,
+            timestamp:timeStampFormat
+        }),
+        new (winston.transports.Console)({
+            name:'debug-console',
+            colorize:true,
+            level:'debug',
+            showLevel:true,
+            json:false,
+            timestamp:timeStampFormat
+        })
+    ],
+    exceptionHandlers: [
+        new (winstonDaily)({
+            name: 'exception-file',
+            filename: './log/exception',
+            datePattern: '_YYYY-MM-DD',
+            colorize: false,
+            maxsize: 50000000,
+            maxFiles: 1000,
+            level: 'error',
+            showLevel: true,
+            json: false,
+            timestamp: timeStampFormat
+        }),
+        new (winston.transports.Console)({
+            name: 'exception-console',
+            colorize: true,
+            level: 'debug',
+            showLevel: true,
+            json: false,
+            timestamp: timeStampFormat
+        })
+    ]
+});
 module.exports = function(router, passport) {
     console.log('user_passport 호출됨.');
 
@@ -55,9 +102,11 @@ module.exports = function(router, passport) {
             console.dir(req.user);
 
             if (Array.isArray(req.user)) {
-                res.render('profile.ejs', {user: req.user[0]._doc, rental: req.rental});
+                res.render('profile.ejs', {user: req.user[0]._doc});
+                logger.info(timeStampFormat()+' '+req.user.name + '님이 로그인 하였습니다');
             } else {
-                res.render('profile.ejs', {user: req.user, rental: req.rental});
+                res.render('profile.ejs', {user: req.user});
+                   logger.info(timeStampFormat()+' '+req.user.name + '님이 로그인 하였습니다');
             }
         }
     });
@@ -65,8 +114,10 @@ module.exports = function(router, passport) {
     // 로그아웃
     router.route('/logout').get(function(req, res) {
         console.log('/logout 패스 요청됨.');
+        logger.info(timeStampFormat()+' '+req.user.name + '님이 로그아웃 하였습니다');
         req.logout();
         res.redirect('/');
+         
     });
 
 
@@ -82,6 +133,7 @@ module.exports = function(router, passport) {
         successRedirect : '/profile', 
         failureRedirect : '/signup', 
         failureFlash : true 
+        
     }));
 
     // 패스포트 - 페이스북 인증 라우팅 
